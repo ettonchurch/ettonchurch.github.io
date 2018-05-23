@@ -156,23 +156,24 @@
                     <div class="form-group">
                         <label for="comment">Date:</label>
                         <input class="form-control" rows="1" placeholder="Date" id="date" ng-model="message.date"></input>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="comment">Message:</label>
-                            <textarea class="form-control" rows="3" id="date" ng-model="message.text"></textarea>
-                            </div>
-                    </div>
-                    <div class="buttons">
-                        <button type="button" class="btn btn-success btn-block" ng-click="addMessage()">Submit</button>
-                    </div>
                 </div>
             </div>
-    
-            <div class="footer text-center">
-                <p>Enter date and a message and select submit. This will update text in center</p>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="comment">Message:</label>
+                    <textarea class="form-control" rows="3" id="date" ng-model="message.text"></textarea>
+                </div>
             </div>
+            <div class="buttons">
+                <button type="button" class="btn btn-success btn-block" ng-click="addMessage()">Submit</button>
+            </div>
+        </div>
 
-            </body>
-        </html>
+        <div class="footer text-center">
+            <p>Enter date and a message and select submit. This will update text in center</p>
+        </div>
+
+        </div>
+
+    </body>
+</html>
