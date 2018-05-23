@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-<head>
-    <title>Church Demo</title>
-        
-    <!-- meta data -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Cinzel|Josefin+Slab" rel="stylesheet">
-    
+    <head>
+        <title>Church Demo</title>
+
+        <!-- meta data -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Cinzel|Josefin+Slab" rel="stylesheet">
+
         <!-- AngularJS -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
         <!-- Firebase -->
@@ -24,16 +24,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-            <!-- Angular app -->
-            <script>
-                var app = angular.module("myApp", ["firebase"]);
-                
-                app.controller('RootCtrl', function($scope, $firebaseArray) {
-                
+
+        <!-- Angular app -->
+        <script>
+            var app = angular.module("myApp", ["firebase"]);
+
+            app.controller('RootCtrl', function($scope, $firebaseArray) {
+
                 /// Database Constant 
                 var dbURL = "https://ettonchurch.firebaseio.com/"
-                
+
                 // Add message
                 $scope.addMessage = function() {
                     var ref = new Firebase(dbURL);
@@ -43,23 +43,23 @@
                         text: $scope.message.text
                     });
                 };
-                
+
                 // View message
                 var message = new Firebase(dbURL);
                 $scope.message = $firebaseArray(message);
-                    
+
                 // Delete message
                 $scope.removeProduct = function(id) {
-                var dref = new Firebase(dbURL + id);
-                var product = $firebaseObject(dref)
-                product.$remove();
+                    var dref = new Firebase(dbURL + id);
+                    var product = $firebaseObject(dref)
+                    product.$remove();
                 };
-                
-                });
-    
-            </script>
-    
-    <style>
+
+            });
+
+        </script>
+
+        <style>
 
             body, html {
                 height: 100%;
@@ -79,17 +79,22 @@
 
             .bgimg {
                 background-image: url("https://i.imgur.com/FyRXvWn.jpg");
-                height: 80%;
+                height: 100%;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 position: relative;
+            }
+            .blur {
                 -webkit-filter: blur(5px);
                 -moz-filter: blur(5px);
                 -o-filter: blur(5px);
                 -ms-filter: blur(5px);
                 filter: blur(5px);
                 transform: scale(1.1);
+            }
+            .half {
+                height: 50vh;
             }
             .maintext {
                 font-size: 8vw;
@@ -101,31 +106,32 @@
                 color: white;
             }
             .footer{
-                height: 10%;
+                position: absolute;
+                bottom: 1%;
             }
-        .form-group{
-            height: 100px;
-        }
-        .buttons {
-            height: 25px;
-        }
+            .form-group{
+                height: 100px;
+            }
+            .buttons {
+                height: 25px;
+            }
             .collapse {
                 visibility: collapse;
             }
 
             @media only screen and (max-width: 480px) {
                 .bgimg {
-                background-image: url("https://i.imgur.com/6JfEFSH.png");
-            }
+                    background-image: url("https://i.imgur.com/6JfEFSH.png");
+                }
 
 
         </style>
-    
-</head>
 
-<body ng-controller="RootCtrl">
-			
-		<div class="navbar transparent navbar-fixed-top">
+    </head>
+
+    <body ng-controller="RootCtrl">
+
+        <div class="navbar transparent navbar-fixed-top">
             <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -137,23 +143,36 @@
                 </div>
             </nav>
         </div>
-    
-        <div class="bgimg"></div>
-    
-        <div ng-repeat="message in message | limitTo : -1">
-            <div class="maintext">{{message.text}}</div>     
-        </div>
-        
-        <div class="footer">
-            <div class="form-group">
-              <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="1" id="date" ng-model="message.date"></textarea>
-              <textarea class="form-control" rows="1" id="text" ng-model="message.text"></textarea>
-            </div>
-            <div class="buttons">
-                <button type="button" class="btn btn-success btn-block" ng-click="addMessage()">Submit</button>
+
+        <div class="jumbotron text-center bgimg half">
+            <div ng-repeat="message in message | limitTo : -1">
+                <div class="maintext">{{message.text}}</div>     
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="comment">Date:</label>
+                        <input class="form-control" rows="1" placeholder="Date" id="date" ng-model="message.date"></input>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="comment">Message:</label>
+                            <textarea class="form-control" rows="3" id="date" ng-model="message.text"></textarea>
+                            </div>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="btn btn-success btn-block" ng-click="addMessage()">Submit</button>
+                    </div>
+                </div>
+            </div>
     
-</body>
-</html>
+            <div class="footer text-center">
+                <p>Enter date and a message and select submit. This will update text in center</p>
+            </div>
+
+            </body>
+        </html>
