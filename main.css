@@ -1,0 +1,75 @@
+<style>
+div {}
+.bg-main {       
+    background-image: url("https://i.imgur.com/FyRXvWn.jpg");
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(3px);
+    transform: scale(1.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+}
+#imageContainer {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute; /* Has to be absolute */
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.middle-text {
+    position: absolute; /* Has to be absolute */
+    width: 90%;
+    top: 50%;
+    transform: translate( 5%, -50%);
+    color: white;
+    z-index: 1;
+}
+.dark-font {
+    color: #474e5d;
+}
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    position: absolute;
+    height: 50vh;
+    width: 100%;
+    top: 100vh;
+    left: 0;
+    z-index: -1;
+}
+.bg-3 { 
+    background-color: #ffffff; /* White */
+    position: absolute;
+    height: 50vh;
+    width: 100%;
+    top: 150vh;
+    left: 0;
+    z-index: -1;
+}
+.footer {
+    background-color: #474e5d; /* Dark Blue */
+    position: absolute;
+    height: 15vh;
+    width: 100%;
+    top: 200vh;
+    left: 0;
+    z-index: -1;
+}
+
+</style>
