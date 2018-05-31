@@ -1,41 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ettonChurch">
+<html>
     <head>
-        <title>St Stephen's Church - Welcome</title>
+        <title>St Stephen's Church - Coming Soon</title>
+
+        <!-- meta data -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- AngularJS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-        <!-- Firebase -->
-        <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-        <!-- AngularFire -->
-        <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script> 
-        
-        <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
         <!-- Font -->
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300" rel="stylesheet">
         
-        <!-- Angular app -->
-        <script>
-            var app = angular.module("ettonChurch", ["firebase"]);
-
-            app.controller('RootCtrl', function($scope, $firebaseArray) {
-
-                /// Database Constant 
-                var dbURL = "https://ettonchurch.firebaseio.com/"
-
-                // View message
-                var message = new Firebase(dbURL);
-                $scope.message = $firebaseArray(message);
-
-            });
-
-        </script>
-
+         <!-- External Stylesheets -->
+        <!-- Main CSS -->
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300" rel="stylesheet">
         <style>
-            body {
+           body {
                 font-family: 'Josefin Slab', serif;
             }
             h1 {
@@ -49,206 +31,18 @@
             h6 {
                 font-weight: 100;
                 font-size: 1em;
+                color: darkgray;
             }
             p {
                 font-weight: 100;
                 font-size: 2em;
             }
-
-            /* The side navigation menu */
-            .sidenav {
-                height: 0; /* 100% Full-height */
-                width: 100%; /* 0 width - change this with JavaScript */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Stay on top */
-                top: 0;
-                left: 0;
-                background-color: #111; /* Black*/
-                overflow-x: hidden; /* Disable horizontal scroll */
-                padding-top: 0px; /* Place content 60px from the top */
-                transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-            }
-
-            /* The navigation menu links */
-            .sidenav a {
-                padding: 0px 0px 0px 0px;
-                text-decoration: none;
-                color: #818181;
-                display: block;
-                transition: 0.3s;
-            }
-
-            /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-            #imageContainer {
-                transition: margin-top 0.5s;
-            }
-
-            /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-            @media screen and (max-height: 450px) {
-                .sidenav {padding-top: 15px;}
-                .sidenav a {font-size: 18px;}
-            }
-            .hamburger {
-                cursor: pointer;
-                position: fixed;
-                right: 10px;
-                width: 48px;
-                height: 48px;
-                transition: all 0.25s;
-                z-index: 5;
-            }
-
-            .hamburger__top-bun,
-            .hamburger__bottom-bun {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 15px;
-                width: 18px;
-                height: 2px;
-                background: #fff;
-                transform: rotate(0);
-                transition: all 0.25s;
-            }
-
-            .hamburger:hover [class*="-bun"] {
-                background: #999;
-            }
-
-            .hamburger__top-bun {
-                top: 23px;
-                transform: translateY(-3px);
-            }
-
-            .hamburger__bottom-bun {
-                bottom: 23px;
-                transform: translateY(3px);
-            }
-
-            .open {
-                transform: rotate(90deg);
-            }
-
-            .open .hamburger__top-bun {
-                transform: 
-                    rotate(45deg) 
-                    translateY(0px);
-            }
-
-            .open .hamburger__bottom-bun {
-                transform: 
-                    rotate(-45deg) 
-                    translateY(0px);
-            } 
-            .bg-main {       
-                background-image: url("https://i.imgur.com/FyRXvWn.jpg");
-                height: 100vh;
-                width: 100%;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                -webkit-filter: blur(5px);
-                -moz-filter: blur(5px);
-                -o-filter: blur(5px);
-                -ms-filter: blur(5px);
-                filter: blur(3px);
-                transform: scale(1.1);
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -5;
-            }
-            #imageContainer {
-                width: 100vw;
-                height: 100vh;
-                overflow: hidden;
-                position: absolute; /* Has to be absolute */
-                top: 0;
-                left: 0;
-                z-index: -1;
-            }
-            .middle-text {
-                position: absolute; /* Has to be absolute */
-                width: 90%;
-                top: 50%;
-                transform: translate( 5%, -50%);
-                color: white;
-                z-index: 1;
-            }
-            .dark-font {
-                color: #474e5d;
-            }
-            .text-left {
-                text-align: left;
-            }
-            .text-center {
-                text-align: center;
-            }
-            .bg-2 { 
-                background-color: #474e5d; /* Dark Blue */
-                position: absolute;
-                height: 50vh;
-                width: 100%;
-                top: 100vh;
-                left: 0;
-                z-index: -1;
-            }
-            .bg-3 { 
-                background-color: #ffffff; /* White */
-                position: absolute;
-                height: 50vh;
-                width: 100%;
-                top: 150vh;
-                left: 0;
-                z-index: -1;
-            }
-            .footer {
-                background-color: #474e5d; /* Dark Blue */
-                position: absolute;
-                height: 15vh;
-                width: 100%;
-                top: 200vh;
-                left: 0;
-                z-index: -1;
-            }
-            .container {
-                padding-right: 0px;
-                padding-left: 0px;
-                margin-right: auto;
-                margin-left: auto;
-            }
-            @media (min-width: 768px) {
-                .container {
-                    width: 750px;
-                }
-            }
-            @media (min-width: 992px) {
-                .container {
-                    width: 970px;
-                }
-            }
-            @media (min-width: 1200px) {
-                .container {
-                    width: 1170px;
-                }
-            }
-
-
         </style>
+
+
     </head>
-    
-    <body ng-controller="RootCtrl">
 
-        <div id="mySidenav" class="sidenav">
-            <div class="middle-text">
-                <h6><a href="/admin.html">Admin</a></h6>
-            </div>
-        </div>
-
-        <div id="hamburger" class="hamburger" onclick="openClose()">
-            <span class="hamburger__top-bun"></span>
-            <span class="hamburger__bottom-bun"></span>
-        </div>
+    <body>
 
         <div id="imageContainer" ng-repeat="message in message | limitTo : -1">
             <div class="bg-main"></div>
@@ -257,64 +51,10 @@
 
                 <h1>Welcome</h1>
                 <br>
-                <p>{{message.text}}</p>
+                <p>Website coming soon</p>
 
             </div> 
         </div>
 
-        <div class="bg-2">
-            <div class="middle-text text-center">
-                <h3>What Am I?</h3>
-                <p>Lorem ipsum..</p>
-            </div>
-        </div>
-
-        <div class="bg-3">
-            <div class="middle-text text-center dark-font">
-                <h3>Where To Find Me?</h3>
-                <p>Lorem ipsum..</p>
-            </div>
-        </div>
-
-        <div class="footer text-left" ng-repeat="message in message | limitTo : -1">
-            <div class="middle-text">
-                <h6>
-                    Footer...
-                    <br>
-                    Date - {{message.date}}
-                </h6>
-            </div>
-        </div>
-
     </body>
-
-    <script type="text/javascript">
-        $('.hamburger').click (function(){
-            $(this).toggleClass('open');
-        });
-    </script>
-
-    <script>
-        var trigger = 0
-
-        function openNav() {
-            document.getElementById("mySidenav").style.height = "8vh";
-            document.getElementById("imageContainer").style.marginTop = "8vh";
-            trigger = 1
-        }
-        function closeNav() {
-            document.getElementById("mySidenav").style.height = "0";
-            document.getElementById("imageContainer").style.marginTop= "0";
-            trigger = 0
-        }
-        function openClose() {
-            if (trigger == 0) {
-                openNav()
-            }
-            else if (trigger == 1) {
-                closeNav()
-            }
-        }
-    </script>
-
 </html>
