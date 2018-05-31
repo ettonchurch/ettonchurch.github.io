@@ -72,4 +72,11 @@ div {}
     z-index: -1;
 }
 
+@media only screen and (max-width: 480px) {
+    
+.bgimg {
+    background-image: url("/images/St_Stephen_Edit.png");
+}
+
+}
 </style>
